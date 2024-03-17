@@ -63,7 +63,7 @@ java {
 compileJava {
     exclude 'module-info.java'
     // Required to be compatible with JDK 8+
-    options.release = 8
+    options.release = 7
 }
 
 javadoc {
@@ -122,12 +122,12 @@ task compileModuleInfoJava(type: JavaCompile) {
 }
 
 compileTestJava {
-    options.release = 8
+    options.release = 7
     options.compilerArgs = ["-Xlint:deprecation"]
 }
 
-def testJava8 = tasks.register('testJava8', Test) {
-    description = 'Runs unit tests on Java 8.'
+def testJava8 = tasks.register('testJava7', Test) {
+    description = 'Runs unit tests on Java 7.'
     group = 'verification'
 
     javaLauncher.set(javaToolchains.launcherFor {
